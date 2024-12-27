@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="registration2.css">
+</head>
+<body>
+    <div class="form-container">
+        <img src="C:\Users\mk_pr\Downloads\createathon.jpg" alt="Create-athon" class="event-image">
+        <h2>Event Registration</h2>
+        <form id="registrationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="rollNumber">Roll Number:</label>
+            <input type="text" id="rollNumber" name="rollNumber" maxlength="6" required>
+            <span id="rollNumberError" class="error-message"></span>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="CSE">Computer Science Engineering</option>
+                <option value="AIDS">Artificial Intelligence and Data Science</option>
+                <option value="IT">Information Technology</option>
+                <option value="CSBS">Computer Science and Business Systems</option>
+                <option value="AIML">Artificial Intelligence and Machine Learning</option>
+                <option value="CY">Computer Science Engineering- Specialization in Cyber Security</option>
+                <option value="ME">Mechanical Engineering</option>
+                <option value="CCE">Computer and Communication Engineering</option>
+                <option value="ECE">Electronics and Communication Engineering</option>
+                <option value="EEE">Electrical and Electronics Engineering</option>
+            </select>
+
+            <label>Year:</label>
+            <div class="year-options">
+                <label><input type="radio" name="year" value="1" required> First Year</label>
+                <label><input type="radio" name="year" value="2"> Second Year</label>
+                <label><input type="radio" name="year" value="3"> Third Year</label>
+                <label><input type="radio" name="year" value="4"> Fourth Year</label>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            const rollNumber = document.getElementById("rollNumber").value;
+            const rollNumberError = document.getElementById("rollNumberError");
+            if (rollNumber.length !== 6) {
+                rollNumberError.textContent = "Invalid Roll Number. Must be 6 characters.";
+                event.preventDefault();
+            } else {
+                rollNumberError.textContent = "";
+            }
+        });
+    </script>
+</body>
+</html>
